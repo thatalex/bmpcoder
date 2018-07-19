@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+      prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="by.spalex.bmp.ui.controller.EncodeController">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" VBox.vgrow="NEVER">
+            <items>
+                <Button mnemonicParsing="false" onAction="#loadText" text="%load_text"/>
+                <Button fx:id="encodeButton" disable="true" mnemonicParsing="false" onAction="#encode"
+                        text="%encode_to_file"/>
+                <Button mnemonicParsing="false" onAction="#close" text="%close"/>
+            </items>
+        </ToolBar>
+        <TextArea fx:id="textArea" onKeyReleased="#onKeyReleased" prefHeight="200.0" prefWidth="200.0"
+                  VBox.vgrow="ALWAYS"/>
+        <Label fx:id="statusLabel" VBox.vgrow="NEVER"/>
+    </children>
+</VBox>

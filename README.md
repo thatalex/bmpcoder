@@ -1,0 +1,1 @@
+Java app for encoding/decoding text into BMP file

@@ -1,0 +1,66 @@
+@startuml
+
+package by.spalex.bmp{
+    package by.spalex.bmp.bitmap{
+        class Bitmap{
+        }
+        package by.spalex.bmp.bitmap.header{
+            class Header{
+            }
+            interface BitmapHeader{
+            }
+            class BitmapCoreHeader{
+            }
+            class BitmapInfoHeader{
+            }
+            enum Bpp{
+            }
+            enum Compression{
+            }
+        }
+    }
+
+    package by.spalex.bmp.ui{
+        class Main{
+        }
+        enum Util{
+        }
+        package by.spalex.bmp.bitmap.controller{
+            abstract class Controller {
+
+            }
+            class MainController{
+            }
+            class EncodeController{
+            }
+            class DecodeController{
+            }
+            class CompareController{
+            }
+        }
+    }
+
+    package by.spalex.bmp.coder{
+        class Encoder{
+        }
+        class Decoder{
+        }
+    }
+    Main --> Controller
+    MainController -up-|> Controller
+    EncodeController -up-|> Controller
+    CompareController <|-up- Controller
+    DecodeController -up-|> Controller
+    Bitmap --> Header
+    Bitmap --> BitmapHeader
+    Bitmap --> Compression
+    Bitmap --> Bpp
+    BitmapHeader --> BitmapCoreHeader
+    BitmapHeader --> BitmapInfoHeader
+    Encoder o-- Bitmap
+    Decoder o-- Bitmap
+    EncodeController o-- Encoder
+    DecodeController o-- Decoder
+}
+
+@enduml

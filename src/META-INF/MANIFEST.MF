@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: by.spalex.bmp.ui.Main
+Class-Path: lib/sanselan-0.97-incubator.jar
+

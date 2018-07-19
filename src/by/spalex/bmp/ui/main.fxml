@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import by.spalex.bmp.ui.ResizableCanvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="by.spalex.bmp.ui.controller.MainController">
+    <ToolBar maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="0.0" VBox.vgrow="NEVER">
+        <Button mnemonicParsing="false" onAction="#openImage" text="%load_bitmap"/>
+        <Button fx:id="encodeButton" mnemonicParsing="false" text="%encode" onAction="#onEncode"
+                disable="true"/>
+        <Button fx:id="compareButton" mnemonicParsing="false" onAction="#compareImage" text="%comparing"
+                disable="true"/>
+        <Button fx:id="decodeButton" mnemonicParsing="false" text="%decoded_text" onAction="#onDecode"
+                disable="true"/>
+        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="%close" onAction="#close"/>
+    </ToolBar>
+    <ResizableCanvas fx:id="canvas" nodeOrientation="INHERIT" VBox.vgrow="ALWAYS"/>
+    <Label fx:id="statusLabel" VBox.vgrow="NEVER"/>
+</VBox>

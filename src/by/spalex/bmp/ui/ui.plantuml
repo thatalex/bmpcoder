@@ -1,0 +1,51 @@
+@startuml
+
+  package by.spalex.bmp.ui {
+      class Main {
+          + start()
+          {static} + main()
+      }
+    class ResizableCanvas {
+        + minHeight()
+        + maxHeight()
+        + prefHeight()
+        + minWidth()
+        + maxWidth()
+        + isResizable()
+        + resize()
+    }
+        enum Util {
+          hexArray
+          lang
+
+        }
+
+        abstract class Controller {
+
+        }
+        class MainController {
+
+        }
+        class CompareController {
+
+        }
+        class DecodeController {
+
+        }
+        class EncodeController {
+
+        }
+    }
+
+  Main -up-|> Application
+  ResizableCanvas -up-|> Canvas
+  MainController -up-|> Controller
+  EncodeController -up-|> Controller
+  DecodeController -up-|> Controller
+  CompareController -up-|> Controller
+  Main o-- Controller : mainController
+  Main o-- Controller : encodeController
+  Main o-- Controller : decodeController
+  Main o-- Controller : compareController
+  Main o-- ResizableCanvas : canvas
+@enduml

@@ -1,0 +1,119 @@
+@startuml
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapCoreHeader {
+          {static} + HEADER_SIZE : int
+          - width : long
+          - height : long
+          - planes : short
+          + BitmapCoreHeader()
+          + getWidth()
+          + getHeight()
+          + getPlanes()
+          + getPaletteSize()
+          + getSize()
+          + getCompression()
+          + getBitsPerPixel()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      interface BitmapHeader {
+          {abstract} + getPaletteSize()
+          {abstract} + getSize()
+          {abstract} + getCompression()
+          {abstract} + getBitsPerPixel()
+          {abstract} + getWidth()
+          {abstract} + getHeight()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapInfoHeader {
+          {static} - HEADER_SIZE : int[]
+          - headerSize : int
+          - width : long
+          - height : long
+          - planes : short
+          - bitmapDataSize : long
+          - horPixelsPerMeter : int
+          - vertPixelsPerMeter : int
+          - numberOfColors : long
+          - numberOfImportantColors : int
+          + BitmapInfoHeader()
+          + getWidth()
+          + getHeight()
+          + getPlanes()
+          + getPaletteSize()
+          + getSize()
+          + getBitsPerPixel()
+          + getCompression()
+          + getBitmapDataSize()
+          + getHorPixelsPerMeter()
+          + getVertPixelsPerMeter()
+          + getNumberOfColors()
+          + getNumberOfImportantColors()
+          {static} + isSupportedSize()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Bpp {
+        MONOCHROME
+        EGA
+        VGA
+        HIGH_COLOR
+        TRUE_COLOR
+        DEEP_COLOR
+        value
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Compression {
+        BI_RGB
+        BI_RLE8
+        BI_RLE4
+        BI_BITFIELDS
+        BI_ALPHABITFIELDS
+        value
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class Header {
+          - magic : byte[]
+          - size : long
+          - offset : long
+          + Header()
+          + getMagic()
+          + getSize()
+          + getOffset()
+      }
+    }
+  }
+  
+
+  BitmapCoreHeader -up|> BitmapHeader
+  BitmapCoreHeader o-- Bpp : bitsPerPixel
+  BitmapInfoHeader -up|> BitmapHeader
+  BitmapInfoHeader o-- Bpp : bitsPerPixel
+  BitmapInfoHeader o-- Compression : compression
+
+
+@enduml

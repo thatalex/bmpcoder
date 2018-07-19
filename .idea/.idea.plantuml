@@ -1,0 +1,296 @@
+@startuml
+
+title __BMPCODER's Class Diagram__\n
+
+  package by.spalex.bmp.bitmap {
+    class Bitmap {
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    class Bitmap {
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapCoreHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapCoreHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      interface BitmapHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      interface BitmapHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapInfoHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class BitmapInfoHeader {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Bpp {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Bpp {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class CompareController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class CompareController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Compression {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      enum Compression {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class Controller {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class Controller {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class DecodeController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class DecodeController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.coder {
+    class Decoder {
+    }
+  }
+  
+
+  package by.spalex.bmp.coder {
+    class Decoder {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class EncodeController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class EncodeController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.coder {
+    class Encoder {
+    }
+  }
+  
+
+  package by.spalex.bmp.coder {
+    class Encoder {
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class Header {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.bitmap {
+    package by.spalex.bmp.bitmap.header {
+      class Header {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    class Main {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    class Main {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class MainController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class MainController {
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    class ResizableCanvas {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    class ResizableCanvas {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    enum Util {
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    enum Util {
+    }
+  }
+  
+
+  Bitmap o-- Header : header
+  Bitmap o-- BitmapHeader : bitmapHeader
+  Bitmap o-- Header : header
+  Bitmap o-- BitmapHeader : bitmapHeader
+  BitmapCoreHeader -up-|> BitmapHeader
+  BitmapCoreHeader o-- Bpp : bitsPerPixel
+  BitmapCoreHeader -up-|> BitmapHeader
+  BitmapCoreHeader o-- Bpp : bitsPerPixel
+  BitmapInfoHeader -up-|> BitmapHeader
+  BitmapInfoHeader o-- Bpp : bitsPerPixel
+  BitmapInfoHeader o-- Compression : compression
+  BitmapInfoHeader -up-|> BitmapHeader
+  BitmapInfoHeader o-- Bpp : bitsPerPixel
+  BitmapInfoHeader o-- Compression : compression
+  CompareController -up-|> Controller
+  CompareController -up-|> Controller
+  DecodeController -up-|> Controller
+  DecodeController -up-|> Controller
+  Decoder o-- Bitmap : bitmap
+  Decoder o-- Bitmap : bitmap
+  EncodeController -up-|> Controller
+  EncodeController o-- Bitmap : bitmap
+  EncodeController -up-|> Controller
+  EncodeController o-- Bitmap : bitmap
+  Encoder o-- Bitmap : bitmap
+  Encoder o-- Bitmap : bitmap
+  Main -up-|> Application
+  Main -up-|> Application
+  MainController -up-|> Controller
+  MainController o-- Bitmap : bitmap
+  MainController -up-|> Controller
+  MainController o-- Bitmap : bitmap
+  ResizableCanvas -up-|> Canvas
+  ResizableCanvas -up-|> Canvas
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

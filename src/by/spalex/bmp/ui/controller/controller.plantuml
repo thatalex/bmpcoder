@@ -1,0 +1,106 @@
+@startuml
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class CompareController {
+          {static} - BYTE_PER_ROW : int
+          {static} - COLUMN_WIDTH : int
+          {static} - COLORS : String[]
+          ~ referenced : byte[]
+          - view : TableView<HexItem>
+          - columnAddress : TableColumn
+          - header1 : Label
+          - header2 : Label
+          - referencedName : String
+          + setReferenced()
+          + loadImage()
+          - createColumns()
+          - getCellCallback()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class HexItem {
+          - referencedRow : byte[]
+          - comparedRow : byte[]
+          - address : byte[]
+          + getAddress()
+          + setAddress()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class Controller {
+          + close()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class DecodeController {
+          - textArea : TextArea
+          + setText()
+          + save()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class EncodeController {
+          - textArea : TextArea
+          - encodeButton : Button
+          - statusLabel : Label
+          - encodeCapacity : int
+          + encode()
+          + loadText()
+          + setBitmap()
+          + onKeyReleased()
+      }
+    }
+  }
+  
+
+  package by.spalex.bmp.ui {
+    package by.spalex.bmp.ui.controller {
+      class MainController {
+          - encodeButton : Button
+          - decodeButton : Button
+          - compareButton : Button
+          - canvas : Canvas
+          - listener : InvalidationListener
+          - image : Image
+          - statusLabel : Label
+          - fileName : String
+          ~ openImage()
+          - paint()
+          ~ initialize()
+          - createStage()
+          + onEncode()
+          + onDecode()
+          + compareImage()
+      }
+    }
+  }
+  
+
+  CompareController -up-|> Controller
+  CompareController +-down- HexItem
+  DecodeController -up-|> Controller
+  DecodeController o-- Decoder : decoder
+  EncodeController -up-|> Controller
+  EncodeController o-- Bitmap : bitmap
+  EncodeController o-- Encoder : encoder
+  MainController -up-|> Controller
+  MainController o-- Bitmap : bitmap
+
+@enduml

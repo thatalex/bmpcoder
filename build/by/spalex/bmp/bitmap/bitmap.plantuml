@@ -1,0 +1,44 @@
+@startuml
+ package by.spalex.bmp.bitmap {
+    class Bitmap {
+        {static} - HEADER_SIZE : int
+        - bytes : byte[]
+        - bitmask : Color
+        - palette : Color[]
+        - paletteOffset : int
+        + Bitmap()
+        - setBitmapHeader()
+        - filPalette()
+        + getPaletteOffset()
+        + getBytes()
+        + getHeader()
+        + getBitmapHeader()
+        + getBitmask()
+        - getRowSize()
+        + getPixelArraySize()
+        + getEncodeCapacity()
+    }
+    package by.spalex.bmp.bitmap.header{
+        class Header{
+        }
+        interface BitmapHeader{
+        }
+        class BitmapCoreHeader{
+        }
+        class BitmapInfoHeader{
+        }
+        enum Bpp{
+        }
+        enum Compression{
+        }
+    }
+  }
+  
+  Bitmap o-- Header : header
+  Bitmap o-- BitmapHeader : bitmapHeader
+  Bitmap o-- Bpp : bpp
+  Bitmap o-- Compression : compression
+  BitmapCoreHeader -up-|> BitmapHeader
+  BitmapInfoHeader -up-|> BitmapHeader
+@enduml
+

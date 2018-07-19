@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ant" default="main" basedir=".">
+    <property file="build.properties"/>
+    <macrodef name="build-and-run">
+        <attribute name="src.dir"/>
+        <attribute name="build.dir"/>
+        <attribute name="jar.dir"/>
+        <attribute name="lib.dir"/>
+        <attribute name="project.name"/>
+        <attribute name="start.class"/>
+        <element name="clean"/>
+        <element name="libs" optional="yes"/>
+        <sequential>
+            <clean/>
+            <mkdir dir="@{build.dir}"/>
+            <path id="build.classpath">
+                <fileset dir="@{lib.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </path>
+            <javac srcdir="@{src.dir}" destdir="@{build.dir}">
+                <classpath refid="build.classpath"/>
+            </javac>
+            <copy todir="@{build.dir}">
+                <fileset dir="@{src.dir}">
+                    <exclude name="**/*.java"/>
+					<exclude name="META-INF/*"/>
+                </fileset>
+            </copy>
+            <copy todir="@{jar.dir}/@{lib.dir}">
+                <libs/>
+            </copy>
+			<pathconvert property="manifest.classpath" pathsep=" ">
+				<path refid="build.classpath"/>
+				<mapper>
+					<chainedmapper>
+						<flattenmapper/>
+						<globmapper from="*.jar" to="lib/*.jar"/>
+					</chainedmapper>
+				</mapper>
+			</pathconvert>
+            <jar destfile="@{jar.dir}/@{project.name}.jar" basedir="@{build.dir}">
+                <manifest>
+                    <attribute name="Main-Class" value="@{start.class}"/>
+					<attribute name="Class-Path" value="${manifest.classpath}"/>
+                </manifest>
+            </jar>
+            <java jar="@{jar.dir}/@{project.name}.jar" fork="true"/>
+        </sequential>
+    </macrodef>
+
+    <target name="build">
+        <build-and-run
+                src.dir="${src.dir}"
+                lib.dir="${lib.dir}"
+                build.dir="${build.dir}"
+                jar.dir="${jar.dir}"
+                project.name="${project.name}"
+                start.class="${start.class}">
+            <clean>
+                <delete dir="${build.dir}"/>
+                <delete dir="${jar.dir}"/>
+            </clean>
+            <libs>
+                <fileset dir="@{lib.dir}"/>
+            </libs>
+        </build-and-run>
+    </target>
+
+    <target name="main" depends="build">
+        <delete dir="${build.dir}"/>
+    </target>
+</project>
