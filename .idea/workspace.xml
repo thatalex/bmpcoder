@@ -144,8 +144,8 @@
       <file leaf-file-name="CompareController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/by/spalex/bmp/ui/controller/CompareController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+            <state relative-caret-position="818">
+              <caret line="112" column="47" lean-forward="true" selection-start-line="112" selection-start-column="47" selection-end-line="112" selection-end-column="47" />
               <folding>
                 <element signature="e#4864#5956#0" expanded="true" />
                 <element signature="e#5955#5956#0" expanded="true" />
@@ -508,12 +508,12 @@
       <workItem from="1524983115448" duration="1732000" />
       <workItem from="1524986202635" duration="5231000" />
       <workItem from="1525067744498" duration="3323000" />
-      <workItem from="1532018011425" duration="6171000" />
+      <workItem from="1532018011425" duration="6176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53421000" />
+    <option name="totallyTimeSpent" value="53426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1022,8 +1022,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/spalex/bmp/ui/controller/CompareController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+        <state relative-caret-position="818">
+          <caret line="112" column="47" lean-forward="true" selection-start-line="112" selection-start-column="47" selection-end-line="112" selection-end-column="47" />
           <folding>
             <element signature="e#4864#5956#0" expanded="true" />
             <element signature="e#5955#5956#0" expanded="true" />
